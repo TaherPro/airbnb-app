@@ -1,9 +1,9 @@
-
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 import Listing from "./models/listing.js";
 import User from "./models/user.js";
 import Booking from "./models/booking.js";
 import connectDB from "./db/connect.js";
-import dotenv from "dotenv";
 
 dotenv.config();
 
@@ -34,3 +34,50 @@ const users = [
     password: "password123",
   },
 ];
+
+const seedDatabase = async () => {
+  try {
+    await connectDB();
+
+    await Listing.deleteMany({});
+    await User.deleteMany({});
+    await Booking.deleteMany({});
+    console.log("Old data deleted");
+
+    const createdListings = await Listing.insertMany(listings);
+    const createdUsers = await User.insertMany(users);
+
+    const bookings = [
+  {
+    user: createdUsers[0]._id,
+    listing: createdListings[0]._id,
+    startDate: new Date("2025-11-01"),
+    endDate: new Date("2025-11-05"),
+    guests: 2,
+    totalPrice: 150 * 4,
+  },
+  {
+    user: createdUsers[1]._id,
+    listing: createdListings[1]._id,
+    startDate: new Date("2025-12-10"),
+    endDate: new Date("2025-12-15"),
+    guests: 4,
+    totalPrice: 500 * 5,
+  },
+];
+
+    await Booking.insertMany(bookings);
+
+    console.log("Seed completed successfully!");
+    console.log(` ${createdListings.length} listings`);
+    console.log(` ${createdUsers.length} users`);
+    console.log(` ${bookings.length} bookings`);
+
+    process.exit();
+  } catch (error) {
+    console.error(" Error seeding database:", error);
+    process.exit(1);
+  }
+};
+
+seedDatabase();
