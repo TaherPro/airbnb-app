@@ -24,4 +24,14 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+// create a listing
+router.post("/", async (req, res) => {
+  try {
+    const listing = await Listing.create(req.body);
+    res.status(201).json(listing);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
 export default router;
