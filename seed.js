@@ -19,7 +19,31 @@ const listings = [
     description: "A cozy 2-bedroom apartment near Central Park.",
     room_type: "Entire home/apt",
     beds: 2,
-  }
+  },
+  {
+    name: "Luxury Villa",
+    property_type: "Villa",
+    price: 500,
+    address: {
+      market: "Los Angeles",
+      country: "United States",
+    },
+    description: "Beautiful luxury villa with a private pool and garden.",
+    room_type: "Entire home/apt",
+    beds: 5,
+  },
+  {
+    name: "Modern Studio",
+    property_type: "Studio",
+    price: 120,
+    address: {
+      market: "San Francisco",
+      country: "United States",
+    },
+    description: "Stylish studio in downtown SF, close to everything.",
+    room_type: "Entire home/apt",
+    beds: 1,
+  },
 ];
 
 const users = [
