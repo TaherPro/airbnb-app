@@ -21,3 +21,16 @@ const listings = [
     beds: 2,
   }
 ];
+
+const users = [
+  {
+    name: "Taher Al-Fakih",
+    email: "taher@example.com",
+    password: "password123", 
+  },
+  {
+    name: "Bob The Builder",
+    email: "bob@example.com",
+    password: "password123",
+  },
+];
