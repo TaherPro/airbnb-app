@@ -6,7 +6,7 @@ import connectDB from "./db/connect.js";
 import listingRoutes from "./routes/listingRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import bookingRoutes from "./routes/bookingRoutes.js";
-import seedRoutes from "./routes/seed.js";
+import seedRoutes from "./routes/seedRoutes.js";
 
 
 dotenv.config();

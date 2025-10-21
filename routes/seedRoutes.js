@@ -1,4 +1,3 @@
-
 import express from "express";
 import Listing from "../models/listing.js";
 import User from "../models/user.js";
